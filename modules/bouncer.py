@@ -21,8 +21,10 @@ def evil_status(name):
         evilst = input('Are you evil?\n').lower()
         if evilst == 'no':
             print('Oh, come on in!')
-        elif evilst == 'yes' and 4 <= int(input('How many good deeds have you done today?\n')):
-            print('All right, you can have a coffee.')
-        else: 
-            print('No coffee for you!.')
-            exit()
+        elif evilst == 'yes': 
+            good_deeds = int(input('How many good deeds have you done today?\n'))
+            if good_deeds >= 4:
+                print('All right, you can have a coffee.')
+            else: 
+                print('No coffee for you!.')
+                exit()

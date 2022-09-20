@@ -1,6 +1,5 @@
 def greet(greeting: str):                                                             
-    print(greeting + ' Welcome to our coffee shop.')
-
+    print(f'{greeting} Welcome to our coffee shop.')
     name = input('What is your name?\n')
     if not bool(name):
         name = 'Darling'
