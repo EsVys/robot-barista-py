@@ -1,4 +1,4 @@
-def greet(greeting: str):                                                              # function sheet not working
+def greet(greeting: str):                                                             
     print(greeting + ' Welcome to our coffee shop.')
 
     name = input('What is your name?\n')
