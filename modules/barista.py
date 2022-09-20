@@ -30,7 +30,7 @@ def add_milk(price_without_milk: float):
     return price_without_milk
 
 def get_order(name: str):
-    print('Here is our menu. \n' + items_without_milk_str + ', ' + items_without_milk_cold_str + ', ' + items_with_milk_str + '.')
+    print(f'Here is our menu. \n{items_without_milk_str} {items_without_milk_cold_str} {items_with_milk_str}.')
     order = input('What would you like?\n').lower()
 
     #price calculation

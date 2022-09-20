@@ -1,10 +1,10 @@
 def age_validation(age: int, name: str):
     if age < 16:
-        print('We are sorry, ' + name + ' we do not have anything for you here.')
+        print(f'We are sorry, {name} we do not have anything for you here.')
         exit()
 
 def validate_input_age(name):
-    age = input('What is your age, ' + name + '?\n')
+    age = input(f'What is your age, {name}?\n')
     try:
         age = int(age)                                                                
         age_validation(age, name)                                                
