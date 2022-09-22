@@ -36,21 +36,18 @@ def test_success_evil_status_no_Pat(monkeypatch):
     monkeypatch.setattr('builtins.input', lambda _: input)
     bouncer.evil_status(name)
 
-def test_success_evil_status_yes_deeds_yes(monkeypatch):
-    name = 'Ben'
-    evilst = 'yes'
-    good_deeds = 2
-    monkeypatch.setattr('builtins.input', lambda _: next())
-    result = bouncer.evil_status(name)
-
-
-
-
-###
-
-def test_greet_no_name(monkeypatch):
+def test_success_greet_no_name(monkeypatch):
     greeting = 'Hello!'
     input = ''
     monkeypatch.setattr('builtins.input', lambda _: input)
     result = greet.greet(greeting)
     assert result == 'Darling'
+
+
+###
+def test_success_evil_status_yes_deeds_yes(monkeypatch):
+    evilst = 'yes'
+    good_deeds = 2
+    monkeypatch.setattr('builtins.input', lambda _: next())
+    result = bouncer.evil_status(name)
+    assert result == 'All right, you can have a coffee.'

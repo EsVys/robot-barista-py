@@ -17,5 +17,6 @@ pytest tests/basic.py
 ```
 
 ## To Do:
+- drinks and their options as classes, use inheritance
 - Repeat order: 
     - with the next order the robot will ask if the customer wants to repeat the next order using the variables from functions, if the customer does not wish to repeat order start with new order
