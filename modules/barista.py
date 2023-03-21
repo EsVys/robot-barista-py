@@ -1,4 +1,3 @@
-from weakref import finalize
 
 items_without_milk = {
     'espresso': 2.00,
@@ -45,7 +44,7 @@ def get_order(name: str):
         exit()
     quantity = int(input('How many coffees would you like?\n'))
     validate_input_quantity(quantity)
-    total = float(price) * float(quantity)
+    total = float(price) * float(quantity)  #change - int(quantity)?
     print('The price is $' + str(total) + '.')
     final_print(order, quantity)
     return order, quantity
@@ -53,11 +52,11 @@ def get_order(name: str):
 def validate_input_quantity(quantity):
     try:
         quantity = int(quantity)
-        if quantity <= 0:
+        if quantity <= 0:       #not working - ValueError must be added
             print('The value is not correct, only positive numbers are allowed.')
             return validate_input_quantity()
         return quantity
-    except ValueError:
+    except ValueError:          #not working - exception Float input => program crashes.
         print('The value is not correct, only numbers are allowed.')
         return validate_input_quantity()
 

@@ -8,7 +8,7 @@ def validate_input_age(name):
     try:
         age = int(age)                                                                
         age_validation(age, name)                                                
-        if age <= 0:
+        if age <= 0:        #not working - condition Negative number behaves the same as age < 16. Program ends.
             print('The value is not correct, only positive numbers are allowed.')
             return validate_input_age(name)
         return age
@@ -16,7 +16,7 @@ def validate_input_age(name):
         print('The value is not correct, only numbers are allowed.')
         return validate_input_age(name)
 
-def evil_status(name):
+def evil_status(name):      #not working - function is not executed at all. After age validation menu is presented.
     if (name == 'ben') or (name == 'pat'):
         evilst = input('Are you evil?\n').lower()
         if evilst == 'no':
@@ -26,5 +26,5 @@ def evil_status(name):
             if good_deeds >= 4:
                 print('All right, you can have a coffee.')
             else: 
-                print('No coffee for you!.')
+                print('No coffee for you!')
                 exit()

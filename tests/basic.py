@@ -15,6 +15,7 @@ def test_fail_bouncer_age_validation():
         bouncer.age_validation(6, name)
 
 def test_success_bouncer_age_validation():
+    name = 'John'
     bouncer.age_validation(16, name)
 
 def test_success_bouncer_validate_input_age(monkeypatch):
@@ -44,7 +45,7 @@ def test_success_greet_no_name(monkeypatch):
     assert result == 'Darling'
 
 
-###
+### 
 def test_success_evil_status_yes_deeds_yes(monkeypatch):
     evilst = 'yes'
     good_deeds = 2
