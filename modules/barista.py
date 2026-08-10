@@ -2,7 +2,7 @@
 items_without_milk = {
     'espresso': 2.00,
     'lungo': 2.50,
-    'dopio': 3.00
+    'doppio': 3.00
 }
 items_without_milk_str = str(items_without_milk)
 
