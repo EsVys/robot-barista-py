@@ -2,9 +2,6 @@ import pytest
 import sys
 sys.path.append("..")
 
-from sre_constants import SUCCESS
-from unicodedata import name
-
 import modules.bouncer as bouncer
 import modules.greet as greet
 
@@ -47,8 +44,8 @@ def test_success_greet_no_name(monkeypatch):
 
 #not working - function evil.status has two inputs Either rewrite the function or find a solution for the test.
 #def test_success_evil_status_yes_deeds_yes(monkeypatch):
-    evilst = 'yes'
-    good_deeds = 2
-    monkeypatch.setattr('builtins.input', lambda _: next())
-    result = bouncer.evil_status(name)
-    assert result == 'All right, you can have a coffee.'
+#    evilst = 'yes'
+#    good_deeds = 2
+#    monkeypatch.setattr('builtins.input', lambda _: next())
+#    result = bouncer.evil_status(name)
+#    assert result == 'All right, you can have a coffee.'
