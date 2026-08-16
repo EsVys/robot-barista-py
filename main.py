@@ -7,7 +7,7 @@ def main():
     while True:
         name = greet.greet(greeting)
         if name.lower() == 'david':
-            barista.easter_egg_david(name)
+            barista.easter_egg_david()
             continue
         if not bouncer.validate_input_age(name):
             continue

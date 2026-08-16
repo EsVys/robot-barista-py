@@ -14,6 +14,8 @@ items_with_milk = {
     'cappuccino': 3.50
 }
 
+babyccino_price = 1.50
+
 def format_menu(items: dict):
     return ', '.join(f'{name.capitalize()} {price} €' for name, price in items.items())
 
@@ -35,20 +37,22 @@ def add_milk(price_without_milk: float):
         return price_without_milk + 0.25
     return price_without_milk
 
-def easter_egg_david(name: str):
-    if ask_yes_no(f'{name}? You started drinking coffee?\n'):
+def easter_egg_david():
+    if ask_yes_no(f'David? You started drinking coffee?\n'):
         print('Wait, really? Someone alert the press.')
-        get_order(name)
+        get_order('David')
     else:
-        print('Oh, it is for Ester!')
+        print('Oh, it is for Ester! Thank you!')
         get_order('Ester')
 
 def offer_babyccino(name: str):
     prompt = f'We are sorry, {name}, we cannot offer you caffeinated drinks. Would you like to have a babyccino?\n'
     if ask_yes_no(prompt):
+        print(f'The price is {babyccino_price} €.')
         final_print('babyccino', 1)
     else:
         print('Okay then. Come back when you are older!')
+        print('\n\nNext please!')
 
 def get_order(name: str):
     print(f'Here is our menu. \n{items_without_milk_str}, {items_without_milk_cold_str}, {items_with_milk_str}.')
@@ -62,7 +66,7 @@ def get_order(name: str):
     elif order in items_with_milk:
         price = items_with_milk[order]
     else:
-        print('Sorry, we do not have that here.')
+        print('Sorry, we do not have that here.\n\nNext please!')
         return
     quantity = validate_input_quantity()
     total = float(price) * float(quantity)
@@ -83,15 +87,13 @@ def validate_input_quantity():
         return validate_input_quantity()
 
 def final_print(order, quantity):
-    we_will = 'We will have your '
-    ready = ' ready in a minute.'
     if quantity == 1:
-        print(we_will + order + ready)
+        print(f'We will have your {order} ready in a minute.')
     else:
-        print(we_will + order + ('s') + ready)
+        print(f'We will have your {quantity} {order}s ready in a minute.')
     hot_warning(order)
     print('\n\nNext please!')
 
 def hot_warning(order):
     if not order in items_without_milk_cold:
-        print('Be careful, this drink is hot.')
+        print('Be careful, the drink is hot.')
