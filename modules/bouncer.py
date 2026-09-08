@@ -1,30 +1,33 @@
+import modules.barista as barista
+
+
 def age_validation(age: int, name: str):
     if age < 16:
-        print(f'We are sorry, {name} we do not have anything for you here.')
-        exit()
+        barista.offer_babyccino(name)
+        return False
+    return True
 
 def validate_input_age(name):
     age = input(f'What is your age, {name}?\n')
     try:
-        age = int(age)                                                                
-        age_validation(age, name)                                                
-        if age <= 0:        #not working - condition Negative number behaves the same as age < 16. Program ends.
+        age = int(age)
+        if age <= 0:
             print('The value is not correct, only positive numbers are allowed.')
             return validate_input_age(name)
-        return age
+        return age_validation(age, name)
     except ValueError:
         print('The value is not correct, only numbers are allowed.')
         return validate_input_age(name)
 
-def evil_status(name):      #not working - function is not executed at all. After age validation menu is presented.
+def evil_status(name):
     if (name == 'ben') or (name == 'pat'):
-        evilst = input('Are you evil?\n').lower()
-        if evilst == 'no':
+        if not barista.ask_yes_no('Are you evil?\n'):
             print('Oh, come on in!')
-        elif evilst == 'yes': 
-            good_deeds = int(input('How many good deeds have you done today?\n'))
-            if good_deeds >= 4:
-                print('All right, you can have a coffee.')
-            else: 
-                print('No coffee for you!')
-                exit()
+            return True
+        good_deeds = int(input('How many good deeds have you done today?\n'))
+        if good_deeds >= 4:
+            print('All right, you can have a coffee.')
+            return True
+        print('No coffee for you!')
+        return False
+    return True
