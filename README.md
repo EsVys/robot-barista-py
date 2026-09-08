@@ -16,6 +16,9 @@ To run the testsuite, execute
 pytest tests/basic.py
 ```
 
+## About this project
+Recent features have been built through vibe coding with Claude (Anthropic's AI coding assistant).
+
 ## To Do:
 - drinks and their options as classes, use inheritance
 - Repeat order: 

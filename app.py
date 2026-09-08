@@ -6,103 +6,89 @@ st.set_page_config(page_title="Robot Barista", page_icon="☕", layout="centered
 
 st.markdown("""
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Poppins:wght@400;500;600;700&display=swap');
 
 :root {
-    --pink: #ff2fb0;
-    --violet: #a259ff;
-    --blue: #00e5ff;
+    --cream: #faf3e8;
+    --coffee: #4b3621;
+    --coffee-light: #6f4e37;
+    --terracotta: #c96f4a;
+    --gold: #cfa15c;
 }
 
 #MainMenu, footer, header { visibility: hidden; }
 
-[data-testid="stMainBlockContainer"] { padding-top: 6rem; }
+[data-testid="stMainBlockContainer"] { padding-top: 3rem; }
 
 .stApp {
-    background: #05010f;
+    background: var(--cream);
     background-image:
-        radial-gradient(ellipse at 50% 0%, rgba(162,89,255,0.25), transparent 60%),
-        radial-gradient(ellipse at 50% 100%, rgba(255,47,176,0.15), transparent 60%);
+        radial-gradient(circle at 15% 10%, rgba(207,161,92,0.15), transparent 40%),
+        radial-gradient(circle at 85% 90%, rgba(201,111,74,0.12), transparent 40%);
     z-index: 0;
 }
 
 html, body, .stMarkdown, .stMarkdown p, label, .stApp span {
-    font-family: 'VT323', monospace !important;
-    font-size: 20px !important;
-    color: #cfc9ff;
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 16px !important;
+    color: var(--coffee);
 }
 
 .neon-title {
-    font-family: 'Press Start 2P', monospace;
-    font-size: 30px;
+    font-family: 'Fraunces', serif !important;
+    font-weight: 700 !important;
+    font-size: 40px !important;
     text-align: center;
-    letter-spacing: 2px;
-    background: linear-gradient(90deg, var(--blue), var(--violet), var(--pink));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    text-shadow: 0 0 20px rgba(162,89,255,0.6), 0 0 40px rgba(255,47,176,0.35);
+    color: var(--coffee);
     margin-bottom: 4px;
 }
 
 .subtitle {
     text-align: center;
-    color: var(--blue) !important;
-    text-shadow: 0 0 8px var(--blue);
-    letter-spacing: 3px;
+    color: var(--coffee-light) !important;
+    font-style: italic;
     margin-bottom: 24px;
 }
 
-@property --angle {
-    syntax: '<angle>';
-    initial-value: 0deg;
-    inherits: false;
-}
-
 .card {
-    position: relative;
-    border: 2px solid transparent;
-    border-radius: 4px;
-    background:
-        linear-gradient(rgba(10,4,26,0.85), rgba(10,4,26,0.85)) padding-box,
-        conic-gradient(from var(--angle), var(--blue), var(--violet), var(--pink), var(--blue)) border-box;
-    box-shadow: 0 0 12px rgba(162,89,255,0.7), inset 0 0 20px rgba(162,89,255,0.15);
-    padding: 20px 24px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(75,54,33,0.12);
+    border: 1px solid rgba(75,54,33,0.08);
+    padding: 24px 28px 16px;
     margin-bottom: 20px;
 }
 
-.line { color: #cfc9ff; margin-bottom: 6px; }
-.line.hi { color: var(--pink) !important; text-shadow: 0 0 6px var(--pink); }
+.line { color: var(--coffee); margin-bottom: 6px; }
+.line.hi { color: var(--terracotta) !important; font-weight: 600; }
 
-.menu-row { display: flex; justify-content: space-between; padding: 4px 0; border-bottom: 1px dashed rgba(0,229,255,0.25); }
-.menu-row span:last-child { color: var(--blue); text-shadow: 0 0 6px var(--blue); }
+.menu-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid rgba(75,54,33,0.08); }
+.menu-row span:last-child { color: var(--coffee-light); font-weight: 700; }
 
 button[data-testid^="stBaseButton"] {
-    font-family: 'Press Start 2P', monospace !important;
-    font-size: 12px !important;
-    color: var(--pink) !important;
-    background: transparent !important;
-    border: 2px solid var(--pink) !important;
-    border-radius: 4px !important;
-    text-shadow: 0 0 6px var(--pink);
-    box-shadow: 0 0 10px rgba(255,47,176,0.5);
+    font-family: 'Poppins', sans-serif !important;
+    font-weight: 600 !important;
+    font-size: 15px !important;
+    color: #fff !important;
+    background: var(--terracotta) !important;
+    border: none !important;
+    border-radius: 24px !important;
+    box-shadow: 0 4px 10px rgba(201,111,74,0.35);
     width: 100%;
 }
-button[data-testid^="stBaseButton"]:hover { background: rgba(255,255,255,0.08) !important; border-color: var(--blue) !important; color: var(--blue) !important; }
+button[data-testid^="stBaseButton"]:hover { background: var(--coffee-light) !important; }
 
 [data-testid="stAlert"] {
-    background: rgba(20,2,10,0.85) !important;
-    border: 2px solid #ff3860 !important;
-    border-radius: 4px !important;
-    box-shadow: 0 0 10px rgba(255,56,96,0.6), inset 0 0 15px rgba(255,56,96,0.12) !important;
+    background: #fff !important;
+    border: 1.5px solid #c94a4a !important;
+    border-radius: 10px !important;
+    box-shadow: 0 4px 12px rgba(201,74,74,0.15) !important;
 }
 [data-testid="stAlert"] p {
-    color: #ff3860 !important;
-    text-shadow: 0 0 6px #ff3860;
-    font-family: 'VT323', monospace !important;
-    font-size: 20px !important;
+    color: #c94a4a !important;
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 15px !important;
 }
-[data-testid="stAlert"] svg { display: none; }
 
 [data-testid="stHorizontalBlock"] {
     display: flex !important;
@@ -136,190 +122,86 @@ button[data-testid^="stBaseButton"]:hover { background: rgba(255,255,255,0.08) !
 }
 
 [data-testid="stTextInputRootElement"], [data-testid="stNumberInputContainer"] {
-    background: rgba(0,0,0,0.4) !important;
-    border: 2px solid var(--blue) !important;
-    box-shadow: 0 0 8px rgba(0,229,255,0.4);
+    background: #fff !important;
+    border: 1.5px solid rgba(75,54,33,0.2) !important;
+    border-radius: 8px;
+    box-shadow: none;
 }
 [data-testid="stTextInputRootElement"] input, [data-testid="stNumberInputContainer"] input {
     background: transparent !important;
-    color: var(--blue) !important;
+    color: var(--coffee) !important;
     border: none !important;
-    font-family: 'VT323', monospace !important;
-    font-size: 20px !important;
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 16px !important;
 }
 
 [data-testid="stForm"] { border: none; padding: 0; }
 
-.sun {
+.bean {
     position: fixed;
-    top: 20px;
-    left: 20px;
-    width: 200px;
-    height: 200px;
+    width: 26px;
+    height: 38px;
+    background: var(--coffee-light);
     border-radius: 50%;
-    background: linear-gradient(180deg, var(--pink), var(--violet));
-    box-shadow: 0 0 60px 15px rgba(255,47,176,0.5);
-    opacity: 0.55;
-    pointer-events: none;
-    z-index: -2;
-}
-
-.moon {
-    position: fixed;
-    bottom: 170px;
-    right: 150px;
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    background: linear-gradient(180deg, var(--blue), var(--violet));
-    box-shadow: 0 0 40px 10px rgba(0,229,255,0.4);
-    opacity: 0.45;
-    pointer-events: none;
-    z-index: -2;
-}
-
-.streak {
-    position: fixed;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, var(--blue), transparent);
-    opacity: 0.4;
-    pointer-events: none;
-    z-index: -2;
-}
-.streak.one {
-    top: 18%;
-    left: -5%;
-    width: 260px;
-    transform: rotate(-18deg);
-}
-.streak.two {
-    bottom: 22%;
-    right: -8%;
-    width: 340px;
-    background: linear-gradient(90deg, transparent, var(--pink), transparent);
-    transform: rotate(12deg);
-}
-.streak.three {
-    top: 42%;
-    right: 4%;
-    width: 140px;
-    background: linear-gradient(90deg, transparent, var(--violet), transparent);
-    transform: rotate(-8deg);
-}
-
-.grid-floor {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 180px;
-    background-image:
-        linear-gradient(rgba(162,89,255,0.4) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(162,89,255,0.4) 1px, transparent 1px);
-    background-size: 40px 40px;
-    -webkit-mask-image: linear-gradient(to top, black, transparent);
-    mask-image: linear-gradient(to top, black, transparent);
-    transform: perspective(200px) rotateX(55deg);
-    transform-origin: bottom;
-    opacity: 0.5;
+    opacity: 0.16;
     pointer-events: none;
     z-index: -1;
-    animation: grid-scroll 1.5s linear infinite;
 }
-@keyframes grid-scroll {
-    from { background-position: 0 0; }
-    to { background-position: 0 40px; }
+.bean::before {
+    content: '';
+    position: absolute;
+    top: 6%;
+    left: 50%;
+    width: 3px;
+    height: 88%;
+    background: var(--cream);
+    border-radius: 3px;
+    transform: translateX(-50%) rotate(8deg);
 }
 
-.starfield {
+.cup {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    width: 36px;
+    height: 30px;
+    background: var(--terracotta);
+    border-radius: 0 0 12px 12px;
+    opacity: 0.16;
     pointer-events: none;
-    z-index: -3;
-    background-image:
-        radial-gradient(1.5px 1.5px at 10% 20%, #fff, transparent),
-        radial-gradient(1.5px 1.5px at 80% 10%, #fff, transparent),
-        radial-gradient(1px 1px at 30% 80%, #fff, transparent),
-        radial-gradient(1px 1px at 70% 65%, #fff, transparent),
-        radial-gradient(1.5px 1.5px at 90% 40%, #fff, transparent),
-        radial-gradient(1px 1px at 15% 55%, #fff, transparent),
-        radial-gradient(1px 1px at 50% 15%, #fff, transparent),
-        radial-gradient(1.5px 1.5px at 60% 85%, #fff, transparent),
-        radial-gradient(1px 1px at 25% 40%, #fff, transparent),
-        radial-gradient(1px 1px at 85% 75%, #fff, transparent);
-    animation: twinkle 4s ease-in-out infinite alternate;
+    z-index: -1;
 }
-@keyframes twinkle {
-    0% { opacity: 0.25; }
-    100% { opacity: 0.75; }
+.cup::before {
+    content: '';
+    position: absolute;
+    right: -11px;
+    top: 5px;
+    width: 12px;
+    height: 15px;
+    border: 4px solid var(--terracotta);
+    border-left: none;
+    border-radius: 0 9px 9px 0;
 }
-
-.scanlines {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 999;
-    mix-blend-mode: overlay;
-    background: repeating-linear-gradient(
-        to bottom,
-        rgba(255,255,255,0.035) 0px,
-        rgba(255,255,255,0.035) 1px,
-        transparent 1px,
-        transparent 3px
-    );
+.cup .steam {
+    position: absolute;
+    top: -14px;
+    width: 3px;
+    height: 12px;
+    background: var(--coffee-light);
+    border-radius: 3px;
+    opacity: 0.5;
 }
-
-.neon-title { animation: title-pulse 2.5s ease-in-out infinite; }
-@keyframes title-pulse {
-    0%, 100% { text-shadow: 0 0 20px rgba(162,89,255,0.6), 0 0 40px rgba(255,47,176,0.35); }
-    50% { text-shadow: 0 0 30px rgba(162,89,255,0.9), 0 0 60px rgba(255,47,176,0.6), 0 0 80px rgba(0,229,255,0.3); }
-}
-
-.cursor { animation: blink 1s step-end infinite; }
-@keyframes blink {
-    0%, 50% { opacity: 1; }
-    51%, 100% { opacity: 0; }
-}
-
-.tower {
-    position: fixed;
-    top: 0;
-    height: 100%;
-    pointer-events: none;
-    z-index: 0;
-    animation: tower-pulse 3s ease-in-out infinite;
-}
-.tower.left {
-    left: 0;
-    width: 4px;
-    background: linear-gradient(to bottom, transparent, var(--pink) 15%, var(--violet) 45%, transparent 75%);
-}
-.tower.right {
-    right: 0;
-    width: 9px;
-    background: linear-gradient(to bottom, transparent 10%, var(--blue) 40%, var(--violet) 65%, var(--pink) 90%, transparent);
-    animation-delay: 1.5s;
-}
-@keyframes tower-pulse {
-    0%, 100% { opacity: 0.2; }
-    50% { opacity: 0.6; }
-}
-
+.cup .steam.one { left: 8px; transform: rotate(-12deg); }
+.cup .steam.two { left: 18px; transform: rotate(10deg); }
 </style>
-<div class="starfield"></div>
-<div class="scanlines"></div>
-<div class="tower left"></div>
-<div class="tower right"></div>
-<div class="moon"></div>
-<div class="streak one"></div>
-<div class="streak two"></div>
-<div class="streak three"></div>
+<div class="bean" style="top: 8%; left: 6%; transform: rotate(-25deg); width: 34px; height: 48px;"></div>
+<div class="bean" style="top: 22%; left: 12%; transform: rotate(40deg);"></div>
+<div class="bean" style="top: 68%; left: 8%; transform: rotate(15deg); width: 30px; height: 42px;"></div>
+<div class="bean" style="bottom: 6%; left: 20%; transform: rotate(-10deg);"></div>
+<div class="bean" style="top: 10%; right: 8%; transform: rotate(20deg); width: 32px; height: 46px;"></div>
+<div class="bean" style="top: 60%; right: 6%; transform: rotate(-30deg);"></div>
+<div class="bean" style="bottom: 10%; right: 18%; transform: rotate(35deg); width: 28px; height: 40px;"></div>
+<div class="cup" style="top: 14%; left: 22%;"><div class="steam one"></div><div class="steam two"></div></div>
+<div class="cup" style="bottom: 16%; right: 10%; width: 44px; height: 36px;"><div class="steam one"></div><div class="steam two"></div></div>
+<div class="cup" style="top: 48%; left: 4%; width: 28px; height: 24px;"><div class="steam one"></div></div>
 """, unsafe_allow_html=True)
 
 
@@ -349,7 +231,7 @@ def go(stage, msg=''):
 
 st.markdown('<h1 class="neon-title">ROBOT BARISTA</h1>', unsafe_allow_html=True)
 if st.session_state.stage == 'welcome':
-    st.markdown('<div class="subtitle">&gt; welcome to our coffee shop<span class="cursor">_</span></div>', unsafe_allow_html=True)
+    st.markdown('<div class="subtitle">welcome to our coffee shop</div>', unsafe_allow_html=True)
 
 if st.session_state.msg:
     line(st.session_state.msg, highlight=True)
@@ -493,5 +375,3 @@ elif stage == 'done':
     if st.button('Next customer'):
         reset()
         st.rerun()
-
-st.markdown('<div class="sun"></div><div class="grid-floor"></div>', unsafe_allow_html=True)
